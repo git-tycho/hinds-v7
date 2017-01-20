@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
     <div class="field">
       <label for="jobid">Job reference</label>
-      <input disabled type="text" id="jobid" placeholder="JobID" [formControl]="myForm.controls['jobid']">
+      <input type="text" id="jobid" placeholder="JobID" [formControl]="myForm.controls['jobid']">
     </div>
     <div class="field">
       <label for="name">Full name</label>
@@ -35,18 +35,16 @@ export class ApplyFormComponent implements OnInit {
   myForm: FormGroup;
 
 
-  constructor(fb: FormBuilder) {
-    this.myForm = fb.group({
-      'jobid': [this.id],
-      'name': [''],
-      'email': [''],
-      'phone': [''],
-
-    });
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     console.log('ID: ', this.id);
+    this.myForm = this.fb.group({
+      'jobid': [{value: this.id, disabled: true}],
+      'name': [''],
+      'email': [''],
+      'phone': [''],
+    });
   }
 
   onSubmit(value: string): void {
