@@ -11,7 +11,7 @@ import { StartComponent } from './start/start.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'about', component: AboutComponent},
-  {path: 'apply', component: ApplyComponent},
+  {path: 'apply/:id', component: ApplyComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'home', component: HomeComponent},
   {path: 'jobs', component: JobsComponent},

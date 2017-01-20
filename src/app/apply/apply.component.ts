@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-apply',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplyComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(params => {this.id = params['id']})
   }
 
 }
