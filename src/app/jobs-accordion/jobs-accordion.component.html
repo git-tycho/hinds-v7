@@ -1,0 +1,17 @@
+<div class="text-center" style="margin-top: 12px">
+  <button type="button" class="btn btn-secondary" (click)="makeRequest()">Show Opportunities</button>
+</div>
+<div *ngIf="loading">loading...</div>
+
+<accordion [closeOthers]=false>
+  <accordion-group *ngFor="let item of data" [heading]="item.job.name">
+    <div>
+      Job ID: {{ item.job._jid }}
+    </div>
+     <div [innerHTML]="item?.job.Description.__cdata"></div>
+     <div class="text-center" style="margin-top: 12px">
+       <a role="button" class="btn btn-success" style="padding: 6px 30px" routerLink="/apply">APPLY</a>
+
+     </div>
+  </accordion-group>
+</accordion>
